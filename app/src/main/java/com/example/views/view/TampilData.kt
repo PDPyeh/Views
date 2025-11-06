@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.views.R
 
 
@@ -35,7 +36,7 @@ fun TampilData(
     val items = listOf(
         Pair(first = stringResource(id = R.string.nama_lengkap), second = "Contoh Nama"),
         Pair(first = stringResource(id = R.string.jenis_kelamin), second = "Lainnya"),
-        Pair(first = stringResource(id = "ALAMAT"), second = "Yogyakarta")
+        Pair(first = stringResource(id = R.string.alamat), second = "Yogyakarta")
     )
     Scaffold (modifier = Modifier,
         topBar = {
@@ -57,10 +58,10 @@ fun TampilData(
         ){
             items.forEach { item ->
                 Column {
-                    Text(text = item.first.uppercase(),fontSize = 16.dp)
+                    Text(text = item.first.uppercase(),fontSize = 16.sp)
                     Text(text = item.second,
                         fontWeight = FontWeight.Bold,
-                        fontFamily = FontFamily.Cursive,fontSize = 22.dp
+                        fontFamily = FontFamily.Cursive,fontSize = 22.sp
                     )
                 }
                 HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
