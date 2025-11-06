@@ -1,5 +1,6 @@
 package com.example.views
 
+import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -9,6 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.views.view.FormIsian
+import com.example.views.view.TampilData
 
 enum class Navigasi {
     Formulirku,
@@ -28,11 +30,24 @@ fun DataApp(
             modifier = Modifier.padding(paddingValues = isiRuang)){
             composable(route=Navigasi.Formulirku.name){
                 FormIsian (
-                    pilihanJK = JenisK.map {id -> konteks.resource.getString(id)}
-                    onSubmitBtnClick =
+                    //pilihanJK = JenisK.map {id -> konteks.resource.getString(id)}
+                    onSubmitBtnClick = {
+                        navController.navigate(route=Navigasi.Detail.name)
+                    }
+                )
+            }
+            composable(route = Navigasi.Detail.name) {
+                TampilData(
+                    onBackBtnClick = {
+                        cancelAndBackToFormulirku(navController)
+                    }
                 )
             }
 
         }
     }
+}
+
+private fun AnimatedContentScope.cancelAndBackToFormulirku(navController: NavHostController) {
+    TODO("Not yet implemented")
 }
