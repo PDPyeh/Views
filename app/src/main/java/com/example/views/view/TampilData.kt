@@ -3,6 +3,8 @@ package com.example.views.view
 import android.R.attr.text
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
@@ -61,6 +63,7 @@ fun TampilData(
                 }
                 HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
             }
+            Spacer(modifier = Modifier.height(height = 10.dp))
 
         }
 
