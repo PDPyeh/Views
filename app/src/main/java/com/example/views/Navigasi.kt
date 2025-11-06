@@ -28,11 +28,10 @@ fun DataApp(
             startDestination = Navigasi.Formulirku.name,
 
             modifier = Modifier.padding(paddingValues = isiRuang)){
-            composable(route=Navigasi.Formulirku.name){
+            composable(route = Navigasi.Formulirku.name){
                 FormIsian (
-                    //pilihanJK = JenisK.map {id -> konteks.resource.getString(id)}
-                    onSubmitBtnClick = {
-                        navController.navigate(route=Navigasi.Detail.name)
+                    OnSubmitBtnClick = {
+                        navController.navigate(route = Navigasi.Detail.name)
                     }
                 )
             }
@@ -48,6 +47,7 @@ fun DataApp(
     }
 }
 
-private fun AnimatedContentScope.cancelAndBackToFormulirku(navController: NavHostController) {
-    TODO("Not yet implemented")
+private fun cancelAndBackToFormulirku(navController: NavHostController) {
+    navController.popBackStack(route = Navigasi.Formulirku.name,
+        inclusive = false)
 }
