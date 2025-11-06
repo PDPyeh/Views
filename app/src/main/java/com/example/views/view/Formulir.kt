@@ -2,8 +2,11 @@ package com.example.views.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.DividerDefaults.Thickness
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,7 +23,7 @@ import com.example.views.R
 
 @Composable
 fun FormIsian(
-    JenisK:List<String> = listOf("Laki-Laki","Perempuan"),
+    jenisK:List<String> = listOf("Laki-Laki","Perempuan"),
     OnSubmitBtnClick : () -> Unit
 ) {
     Scaffold (modifier= Modifier,
@@ -46,7 +49,17 @@ fun FormIsian(
                 label = {Text(text = "Nama Lengkap")},
                 onValueChange = {},
             )
+            HorizontalDivider(modifier = Modifier
+                .padding(all = 20.dp)
+                .width(width = 250.dp), thickness = Thickness, color = Color.Red
+            )
+            Row{
+                jenisK.forEach {
+                    item->
+                    Row
 
+                }
+            }
         }
 
     }
