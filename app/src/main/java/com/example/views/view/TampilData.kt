@@ -1,6 +1,11 @@
 package com.example.views.view
 
+import android.R.attr.text
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBarDefaults.colors
 import androidx.compose.material3.Text
@@ -10,10 +15,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.example.views.R
 
-@OptIn(markerClass = ExperimentalMaterial3Api::class)
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TampilData(
     onBackBtnClick:()-> Unit
@@ -36,7 +46,24 @@ fun TampilData(
                         (id=R.color.teal_700)
                     )
             )
-        }){
+        }){ isiRuang->
+        Column(
+          modifier = Modifier.padding(all=dimensionResource(id=R.dimen.padding_medium)),
+          verticalArrangement = Arrangement.spacedBy (space = dimensionResource(id=R.dimen.padding_small))
+        ){
+            items.forEach { item ->
+                Column {
+                    Text(text = item.first.uppercase(),fontSize = 16.dp)
+                    Text(text = item.second,
+                        fontWeight = FontWeight.Bold,
+                        fontFamily = FontFamily.Cursive,fontSize = 22.dp
+                    )
+                }
+                HorizontalDivider(thickness = 1.dp, color = Color.Cyan)
+            }
+
+        }
 
     }
 }
+
